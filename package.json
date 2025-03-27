@@ -1,0 +1,48 @@
+{
+  "name": "animaflow",
+  "version": "0.1.0",
+  "description": "A lightweight, powerful animation library for modern web",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "webpack --mode production && tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "keywords": [
+    "animation",
+    "easing",
+    "motion",
+    "gsap-alternative",
+    "web-animation"
+  ],
+  "author": "AnimaFlow Team",
+  "license": "MIT",
+  "homepage": "https://github.com/animaflow/animaflow",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/animaflow/animaflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/animaflow/animaflow/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
