@@ -36,7 +36,8 @@ export class Animator {
         const progress = Math.min(elapsed / (this.props.duration! * 1000), 1);
         
         // Apply easing
-        const easedProgress = Easing[this.props.ease!](progress);
+        const easingFunction = Easing[this.props.ease as keyof typeof Easing] as (t: number) => number;
+        const easedProgress = easingFunction(progress);
         
         this.updateTargetProperties(easedProgress);
         
@@ -59,7 +60,7 @@ export class Animator {
   private updateTargetProperties(progress: number): void {
     if (!this.target) return;
 
-    const style = this.target.style;
+    const style = (this.target as HTMLElement).style;
 
     // Position transformation
     if (this.props.x !== undefined) {
